@@ -3,9 +3,9 @@ package com.example.trynavigation.ui.repozitory
 import com.example.trynavigation.ui.data.FirstModel
 
 class FirstRepozitory {
-    private var textList = mutableListOf<FirstModel>()
+        private var textList = mutableListOf<FirstModel>()
 
-    fun getListOfText() {
+    fun getListOfText(): MutableList<FirstModel> {
         textList.add(FirstModel("https://http.cat/100", "Continue"))
         textList.add(FirstModel("https://http.cat/101", "Switching Protocols"))
         textList.add(FirstModel("https://http.cat/102", "Processing"))
@@ -58,6 +58,8 @@ class FirstRepozitory {
         textList.add(FirstModel("https://http.cat/451", "Unavailable For Legal Reasons"))
         textList.add(FirstModel("https://http.cat/497", "HTTP Request Sent HTTPS Port"))
         textList.add(FirstModel("https://http.cat/498", "Token expired/invalid"))
+
+        return textList
 
     }
 }

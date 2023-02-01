@@ -28,16 +28,5 @@
         app:layout_constraintTop_toTopOf="@id/image_detail"
         tools:text="NAME" />
 
-    <Button
-        android:id="@+id/close_cat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        android:padding="10dp"
-        android:text="clothe"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_name_detail" />
 
 </FrameLayout>

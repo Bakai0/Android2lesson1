@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.trynavigation.R
 import com.example.trynavigation.databinding.ActivityMainBinding
@@ -22,7 +23,12 @@ class MainActivity : AppCompatActivity() {
         val NavHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_graph_xml) as NavHostFragment
         val navController = NavHostFragment.navController
-
         binding.bottomNavigation.setupWithNavController(navController)
+
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = this.findNavController(R.id.navHostFragment)
+        val drawerLayout = null
+        return NavigationUI.navigateUp(navController, drawerLayout)
     }
 }

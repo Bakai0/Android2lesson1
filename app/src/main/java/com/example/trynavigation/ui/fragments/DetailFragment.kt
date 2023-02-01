@@ -6,16 +6,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.example.trynavigation.databinding.FragmentDetailBinding
 import com.example.trynavigation.ui.data.FirstModel
 
 class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
+    private val args by navArgs<DetailFragmentArgs>()
     private var model: FirstModel? = null
 
-    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,27 +29,15 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        data
-        click()
+        getData()
     }
 
-    private fun click() {
-        binding.root.setOnClickListener {
-            findNavController().navigateUp()
-        }
+    private fun getData() {
+        binding.txtNameDetail.text = args.text
+        val logoPath = args.img
+        Glide
+            .with(binding.imageDetail.context)
+            .load(logoPath)
+            .into(binding.imageDetail)
     }
-
-//    private val data: Unit
-//        get() {
-//            val argument = arguments
-//            if (argument != null) {
-//                model = argument.getSerializable("key") as FirstModel
-//                val let = binding.imageDetail.let {
-//                    var it = null
-//                    it?.context.let { it1 ->
-//                        Glide.with(it1).load(model?.text).into(binding.root)
-//                    }
-//                }
-//                  model?.text
-//            }
-        }
+}
